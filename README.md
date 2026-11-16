@@ -21,7 +21,7 @@ The project demonstrates Python object-oriented programming, dictionaries, rando
 - Includes 90 scriptures, with 30 in each category.
 - Displays the Bible reference, scripture text, and a child-friendly explanation.
 - Uses a graphical user interface built with Tkinter.
-- Automatically adjusts text wrapping for longer scriptures.
+- Wraps longer scripture passages to improve readability.
 - Includes a custom application icon.
 
 </details>
@@ -105,10 +105,21 @@ Make sure `scripgenimage.png` is located in the same directory as the Python scr
 
 ```text
 ScriptureGenerator/
-│
 ├── scripture_generator.py
+├── scripture.py
+├── scriptures.py
 ├── scripgenimage.png
-└── README.md
+├── screenshots/
+│   ├── uplifting.png
+│   ├── teaching.png
+│   └── prayer.png
+├── tests/
+│   ├── __init__.py
+│   ├── test_generator.py
+│   ├── test_scripture.py
+│   └── test_scriptures.py
+├── README.md
+└── .gitignore
 ```
 
 </details>
@@ -140,14 +151,30 @@ ScriptureGenerator/
 The application uses a `Scripture` class to store three pieces of information:
 
 - **Location:** The Bible book, chapter, and verse.
-- **Says:** The scripture text.
+- **Scripture:** The scripture text.
 - **Meaning:** A simplified explanation of the scripture.
 
-Scriptures are organized into nested dictionaries based on their categories.
+Scriptures are organized into lists in category dictionaries.
 
-When the user clicks **Generate**, the application identifies the selected category, randomly chooses a scripture from its dictionary, and updates the interface with the corresponding information.
+When the user clicks **Generate**, the application identifies the selected category, randomly selects a scripture from the corresponding list, and updates the interface with its reference, text, and explanation.
 
 New scriptures can be added to the existing dictionaries without modifying the scripture generation logic.
+
+</details>
+
+<details>
+<summary><strong>Tests</strong></summary>
+
+## Tests
+
+There are eight automated tests included which cover the scripture model, data
+collections, and generator logic.
+
+To run the tests, execute the following command from the project directory:
+
+```bash
+python -m unittest discover -s tests -v
+```
 
 </details>
 
